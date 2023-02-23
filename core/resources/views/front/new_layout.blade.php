@@ -98,8 +98,8 @@
 									</a>
 								</li>
 								<li>
-									<a href="../admin/contacts/index.blade.php">
-										CONTACT
+									<a href="#contactId">
+										@if($currentLang->direction == 'rtl') تواصل معنا  @else Contacts @endif
 									</a>
 								</li>
 								<!------------------------------------>
@@ -148,10 +148,10 @@
 									{{ __('Blog') }}
 								</a>
 							</li>
-							<li class="left-flyout">
-								<a href="contact.html" title="Contact">
-									CONTACT
-								</a>
+							<li class="class="@if(request()->path() == '/') selected  @endif" left-flyout">
+							<a href="#contact">
+										@if($currentLang->direction == 'rtl') تواصل معنا  @else Contacts @endif
+									</a>
 							</li>
 							<li class="left-flyout">
 								@if($currentLang->direction == 'rtl')

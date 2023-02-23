@@ -102,8 +102,8 @@
 									</a>
 								</li>
 								<li>
-									<a href="../admin/contacts/index.blade.php">
-										CONTACT
+									<a href="#contactId">
+										<?php if($currentLang->direction == 'rtl'): ?> تواصل معنا  <?php else: ?> Contacts <?php endif; ?>
 									</a>
 								</li>
 								<!------------------------------------>
@@ -156,10 +156,10 @@
 
 								</a>
 							</li>
-							<li class="left-flyout">
-								<a href="contact.html" title="Contact">
-									CONTACT
-								</a>
+							<li class="class="<?php if(request()->path() == '/'): ?> selected  <?php endif; ?>" left-flyout">
+							<a href="#contact">
+										<?php if($currentLang->direction == 'rtl'): ?> تواصل معنا  <?php else: ?> Contacts <?php endif; ?>
+									</a>
 							</li>
 							<li class="left-flyout">
 								<?php if($currentLang->direction == 'rtl'): ?>
