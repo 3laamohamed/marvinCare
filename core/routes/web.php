@@ -92,7 +92,6 @@ Route::group(['middleware' => 'setlang'], function () {
 
         Route::get('/login', 'User\LoginController@showLoginForm')->name('user.login');
         Route::post('/login/submit', 'User\LoginController@login')->name('user.login.submit');
-
         Route::get('/register', 'User\RegisterController@showRegisterForm')->name('user.register');
         Route::post('/register/submit', 'User\RegisterController@register')->name('user.register.submit');
         Route::get('/register/verify/{token}', 'User\RegisterController@token')->name('user.register.token');
