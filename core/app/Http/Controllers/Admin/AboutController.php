@@ -115,7 +115,7 @@ class AboutController extends Controller
         return redirect(route('admin.about').'?language='.$this->lang->code)->with('notification', $notification);
     }
     public function indexContact(){
-        $contacts = Client::orderBy('id', 'DESC')->get();
+        $contacts = '';
         return view('admin.contacts.index', compact('contacts'));
     }
 }
