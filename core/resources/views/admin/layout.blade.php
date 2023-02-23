@@ -7,6 +7,8 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- font-awesome -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/fonts/all.min.css">
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{  asset('assets/front/img/'.$setting->fav_icon) }}" type="image/png">
   @includeif('admin.partials.styles')

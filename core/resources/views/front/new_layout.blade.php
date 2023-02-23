@@ -10,7 +10,7 @@
 	<meta name="keywords" content="@yield('meta-keywords')">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.2" />
 	<meta name="format-detection" content="telephone=no" />
@@ -23,9 +23,11 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/superfish.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/prettyPhoto.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/jquery.qtip.css">
+	<!-- font-awesome & owl-carousel & -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/fonts/all.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/owl.carousel.min.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/owl.theme.default.min.css">
+
 	@if($currentLang->direction == 'rtl')  
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/style_ar.css"> 
 	@else  
@@ -96,7 +98,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="contact.html">
+									<a href="../admin/contacts/index.blade.php">
 										CONTACT
 									</a>
 								</li>
@@ -153,9 +155,9 @@
 							</li>
 							<li class="left-flyout">
 								@if($currentLang->direction == 'rtl')
-									<a class="lang" href="{{ route('changeLanguage','en') }}"><span class="text-bold">en</span></a>
+									<a class="lang" href="{{ route('changeLanguage','en') }}"><span class="text-bold"> en </span></a>
 								@else
-									<a class="lang" href="{{ route('changeLanguage','ar') }}">ع</a>
+									<a class="lang" href="{{ route('changeLanguage','ar') }}"> ع </a>
 								@endif
 							</li>
 						</ul>
@@ -179,7 +181,8 @@
 							 data-x="center"
 							 data-y="['273', '313', '200', '260']"
 						>
-							<h2><a href="{{ route('front.service') }}" title="Estimate Total Costs">{{$slider->name}}</a></h2>
+						
+						<h2><a href="{{ route('front.service') }}" title="Estimate Total Costs">{{$slider->name}}</a></h2>
 						</div>
 						<!-- LAYER 03 -->
 						<div class="tp-caption"
@@ -290,6 +293,9 @@
 <script type="text/javascript" src="{{ asset('/') }}assets/front_2/js/jquery.prettyPhoto.js"></script>
 <script type="text/javascript" src="{{ asset('/') }}assets/front_2/js/jquery.qtip.min.js"></script>
 <script type="text/javascript" src="{{ asset('/') }}assets/front_2/js/jquery.blockUI.min.js"></script>
+<!-- Owl-carousel & bootstrap 4.6 javascript -->
+<script type="text/javascript" src="{{ asset('/') }}assets/front_2/js/owl.carousel.min.js"></script>
+
 <script type="text/javascript" src="{{ asset('/') }}assets/front_2/js/main.js"></script>
 <script type="text/javascript" src="{{ asset('/') }}assets/front_2/js/odometer.min.js"></script>
 </body>

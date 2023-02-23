@@ -136,7 +136,29 @@
 					</div>
 				</div>
 			</div>
-
+			<div class="row full-width padding-top-89 padding-bottom-100">
+				<div class="row">
+					<h2 class="box-header">Our Clients</h2>
+					<p class="description align-center">You can browse the latest articles that have been uploaded recently.</p>
+					<div class="carousel-container margin-top-65 clearfix">
+						<div class="owl-carousel owl-theme">
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676841623781402866.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676970105502070196.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/16769845231163908613.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676842446697983732.png" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676841623781402866.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676970105502070196.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/16769845231163908613.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676842446697983732.png" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676841623781402866.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676970105502070196.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/16769845231163908613.jpg" alt=""></div>
+							<div class="item"><img src="{{ asset('/') }}assets/front/img/1676842446697983732.png" alt=""></div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 @endsection
