@@ -269,7 +269,17 @@
                         </p>
                     </a>
                 </li>
-                
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact'). '?language=' . $lang_code }}" class="nav-link
+            @if(request()->path() == 'admin/contact') active
+            @endif">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Contacts
+                        </p>
+                    </a>
+                </li>
               
                 <li class="nav-item">
                     <a href="{{ route('admin.service'). '?language=' . $lang_code  }}" class="nav-link

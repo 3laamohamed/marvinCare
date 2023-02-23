@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Client;
 use Session;
 use App\About;
 use App\Language;
@@ -112,5 +113,9 @@ class AboutController extends Controller
             'alert' => 'success'
         );
         return redirect(route('admin.about').'?language='.$this->lang->code)->with('notification', $notification);
+    }
+    public function indexContact(){
+        $contacts = Client::orderBy('id', 'DESC')->get();
+        return view('admin.contacts.index', compact('contacts'));
     }
 }
