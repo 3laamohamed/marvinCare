@@ -84,7 +84,9 @@ Route::group(['middleware' => 'setlang'], function () {
     Route::get('/product/paypal/return', 'Payment\Product\PaypalController@payreturn')->name('product.payment.return');
     Route::get('/product/paypal/notify', 'Payment\Product\PaypalController@notify')->name('product.payment.notify');
     Route::post('/product/stripe/submit', 'Payment\Product\StripeController@store')->name('product.stripe.submit');
-   
+
+
+
 
     Route::prefix('user')->group(function () {
 
@@ -189,6 +191,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () 
     // About Us Route
     Route::get('/about', 'Admin\AboutController@about_me')->name('admin.about_me');
     Route::post('/about/update', 'Admin\AboutController@update_about_me')->name('admin.update_about_me');
+
+    // Contact Us Route
+    Route::get('/contact', 'Admin\AboutController@indexContact')->name('admin.contact');
+    Route::post('/contact/delete/{id}', 'Admin\AboutController@deleteContact')->name('admin.contact.delete');
 
     // Contact Info Route
     Route::get('/about/contact-info', 'Admin\AboutController@contact_info')->name('admin.contact_info');
