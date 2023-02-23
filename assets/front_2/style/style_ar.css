@@ -1,4 +1,5 @@
 /* --- general --- */
+
 .clearfix:after
 {
     font-size: 0px;
@@ -204,7 +205,7 @@ img.radius
 }
 .align-right
 {
-	text-align: right;
+	text-align: right !important;
 }
 .padding-0
 {
@@ -832,6 +833,12 @@ body .transparent-header-container
 {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+.sf-menu ul{
+transform: rotate(90deg);
+}
+.sf-menu ul li{
+	transform: rotate(-90deg);
+}
 .transparent-header-container .sf-menu li:hover a, .transparent-header-container .sf-menu li:hover a:visited, 
 .transparent-header-container .sf-menu a:hover,
 .transparent-header-container .sf-menu a:visited:hover,
@@ -1039,6 +1046,7 @@ span.cart-items-number-arrow
 .menu-container.first-menu,
 .menu-container.second-menu
 {
+	/* max-width: 340px; */
 	max-width:500px;
 	z-index: 2;
 }
@@ -1609,6 +1617,7 @@ body.overlay .background-overlay
 		display: inline;
 	}
 }
+
 .row
 {
 	width: 1170px;
@@ -3675,8 +3684,11 @@ span.number.sign
 	background-color: #F6F6F6;
 }
 /* --- list bullet --- */
+.site-container ul.list{
+direction: rtl;
+}
 .site-container ul.list li
-{
+{   
 	float: none;
 	width: auto;
 	padding-top: 6px;
@@ -3714,14 +3726,17 @@ li.template-arrow-horizontal-2::before
 .site-container ul li.template-tick-1,
 .site-container ul li.template-tick-2
 {
-	padding-left: 35px;
+	/* padding-left: 35px; */
+	padding-right: 35px;
 }
 li.template-tick-1::before,
 li.template-tick-2::before
 {
 	color: #56B665;
-	padding-right: 14px;
-	margin-left: -36px;
+	/* padding-right: 14px;
+	margin-left: -36px; */
+	padding-left: 14px;
+	margin-right: -36px;
 	vertical-align: top;
 	font-size: 22px;
 }
@@ -4953,7 +4968,7 @@ div.pp_default .pp_close:hover
 	display: none;
 }
 .revolution-slider h2
-{
+{   direction: rtl !important;
 	font-size: 52px;
 	line-height: 72px;
 	font-weight: 300;
@@ -4963,6 +4978,7 @@ div.pp_default .pp_close:hover
 .revolution-slider h2 strong
 {
 	font-weight: 900;
+	color:blue;
 }
 .revolution-slider h4
 {
@@ -5147,4 +5163,9 @@ body.lock-position
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+}
+@media (max-width:400px){
+	.column-1-4{
+		text-align: right;
+	}
 }

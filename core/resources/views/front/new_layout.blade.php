@@ -23,7 +23,15 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/superfish.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/prettyPhoto.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/jquery.qtip.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/fonts/all.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/owl.theme.default.min.css">
+	@if($currentLang->direction == 'rtl')  
+	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/style_ar.css"> 
+	@else  
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/style.css">
+	@endif
+
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/animations.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/responsive.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/style/odometer-theme-default.css">
@@ -32,32 +40,32 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/fonts/template/style.css">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/front_2/fonts/social/style.css">
 	<link rel="shortcut icon" href="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}}">
+    
+
 </head>
 <body {{ Session::has('notification') ? 'data-notification' : '' }} @if(Session::has('notification')) data-notification-message='{{ json_encode(Session::get('notification')) }} @endif' >
 <div class="site-container">
 	<div class="transparent-header-container height-auto">
 		<div class="header-container sticky">
 			<div class="header clearfix">
+				
+				<!--img--->
+				<div class="logo">
+					<h1>
+						<a href="{{ route('front.index') }}">
+							<img src="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}}" width="60px" height="60px" srcset="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}} 2x" class="secondary-logo" alt="logo">
+							<img src="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}}" width="60px" height="60px" srcset="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}} 2x" class="primary-logo" alt="logo">
+							<span class="logo-text">{{$setting->website_title}}</span>
+						</a>
+					</h1>
+				</div>
+				<a href="#" class="mobile-menu-switch">
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+				</a>
 				<div class="menu-container first-menu clearfix">
-					<nav>
-						<ul class="sf-menu">
-							<li class="@if(request()->path() == '/') selected  @endif" href="{{ route('front.index') }}">
-								<a href="{{ route('front.index') }}">
-									{{ __('Home') }}
-								</a>
-							</li>
-							<li class="@if(request()->path() == 'about') selected  @endif"  href="{{ route('front.about') }}">
-								<a href="{{ route('front.about') }}">
-									{{ __('About') }}
-								</a>
-							</li>
-							<li class="@if(request()->path() == 'service') selected  @endif"  href="{{ route('front.service') }}">
-								<a href="{{ route('front.service') }}">
-									{{ __('Service') }}
-								</a>
-							</li>
-						</ul>
-					</nav>
 					<div class="mobile-menu-container">
 						<nav>
 							<ul class="mobile-menu collapsible-mobile-submenus">
@@ -92,37 +100,42 @@
 										CONTACT
 									</a>
 								</li>
+								<!------------------------------------>
+								<li class="left-flyout">
+								@if($currentLang->direction == 'rtl')
+									<a class="lang" href="{{ route('changeLanguage','en') }}"><span class="text-bold">en</span></a>
+								@else
+									<a class="lang" href="{{ route('changeLanguage','ar') }}">ع</a>
+								@endif
+							</li>
 							</ul>
 						</nav>
 					</div>
 				</div>
-				<div class="logo">
-					<h1>
-						<a href="{{ route('front.index') }}">
-							<img src="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}}" width="60px" height="60px" srcset="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}} 2x" class="secondary-logo" alt="logo">
-							<img src="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}}" width="60px" height="60px" srcset="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}} 2x" class="primary-logo" alt="logo">
-							<span class="logo-text">{{$setting->website_title}}</span>
-						</a>
-					</h1>
-					<div class="logo-clone">
-						<h1>
-							<a href="{{ route('front.index') }}">
-								<img src={{ asset('/') }}assets/front/img/{{$setting->fav_icon}}" width="60px" height="60px" srcset="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}} 2x" class="secondary-logo" alt="logo">
-								<img src={{ asset('/') }}assets/front/img/{{$setting->fav_icon}}" width="60px" height="60px" srcset="{{ asset('/') }}assets/front/img/{{$setting->fav_icon}} 2x" class="primary-logo" alt="logo">
-								<span class="logo-text">{{$setting->website_title}}</span>
-							</a>
-						</h1>
-					</div>
-				</div>
-				<a href="#" class="mobile-menu-switch">
-					<span class="line"></span>
-					<span class="line"></span>
-					<span class="line"></span>
-					<span class="line"></span>
-				</a>
+				
+
+				<!------------------------------------------------->
+				
 				<div class="menu-container clearfix second-menu">
 					<nav>
-						<ul class="sf-menu">
+					<ul class="sf-menu">
+							<li class="@if(request()->path() == '/') selected  @endif" href="{{ route('front.index') }}">
+								<a href="{{ route('front.index') }}">
+									{{ __('Home') }}
+								</a>
+							</li>
+							<li class="@if(request()->path() == 'about') selected  @endif"  href="{{ route('front.about') }}">
+								<a href="{{ route('front.about') }}">
+									{{ __('About') }}
+								</a>
+							</li>
+							<li class="@if(request()->path() == 'service') selected  @endif"  href="{{ route('front.service') }}">
+								<a href="{{ route('front.service') }}">
+									{{ __('Service') }}
+								</a>
+							</li>
+						
+						
 							<li class="@if(request()->path() == 'work') selected @elseif(request()->is('work-details/*')) selected @endif">
 								<a href="{{ route('front.work') }}">
 									@if($currentLang->direction == 'rtl') المشاريع  @else Projects @endif

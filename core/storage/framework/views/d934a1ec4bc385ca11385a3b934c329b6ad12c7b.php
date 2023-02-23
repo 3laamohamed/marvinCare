@@ -23,7 +23,12 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/superfish.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/prettyPhoto.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/jquery.qtip.css">
+	<?php if($currentLang->direction == 'rtl'): ?>  
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/style_ar.css"> 
+	<?php else: ?>  
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/style.css">
+	<?php endif; ?>
+
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/animations.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/responsive.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('/')); ?>assets/front_2/style/odometer-theme-default.css">
@@ -38,29 +43,24 @@
 	<div class="transparent-header-container height-auto">
 		<div class="header-container sticky">
 			<div class="header clearfix">
+				
+				<!--img--->
+				<div class="logo">
+					<h1>
+						<a href="<?php echo e(route('front.index')); ?>">
+							<img src="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?>" width="60px" height="60px" srcset="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?> 2x" class="secondary-logo" alt="logo">
+							<img src="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?>" width="60px" height="60px" srcset="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?> 2x" class="primary-logo" alt="logo">
+							<span class="logo-text"><?php echo e($setting->website_title); ?></span>
+						</a>
+					</h1>
+				</div>
+				<a href="#" class="mobile-menu-switch">
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+				</a>
 				<div class="menu-container first-menu clearfix">
-					<nav>
-						<ul class="sf-menu">
-							<li class="<?php if(request()->path() == '/'): ?> selected  <?php endif; ?>" href="<?php echo e(route('front.index')); ?>">
-								<a href="<?php echo e(route('front.index')); ?>">
-									<?php echo e(__('Home')); ?>
-
-								</a>
-							</li>
-							<li class="<?php if(request()->path() == 'about'): ?> selected  <?php endif; ?>"  href="<?php echo e(route('front.about')); ?>">
-								<a href="<?php echo e(route('front.about')); ?>">
-									<?php echo e(__('About')); ?>
-
-								</a>
-							</li>
-							<li class="<?php if(request()->path() == 'service'): ?> selected  <?php endif; ?>"  href="<?php echo e(route('front.service')); ?>">
-								<a href="<?php echo e(route('front.service')); ?>">
-									<?php echo e(__('Service')); ?>
-
-								</a>
-							</li>
-						</ul>
-					</nav>
 					<div class="mobile-menu-container">
 						<nav>
 							<ul class="mobile-menu collapsible-mobile-submenus">
@@ -99,37 +99,45 @@
 										CONTACT
 									</a>
 								</li>
+								<!------------------------------------>
+								<li class="left-flyout">
+								<?php if($currentLang->direction == 'rtl'): ?>
+									<a class="lang" href="<?php echo e(route('changeLanguage','en')); ?>"><span class="text-bold">en</span></a>
+								<?php else: ?>
+									<a class="lang" href="<?php echo e(route('changeLanguage','ar')); ?>">ع</a>
+								<?php endif; ?>
+							</li>
 							</ul>
 						</nav>
 					</div>
 				</div>
-				<div class="logo">
-					<h1>
-						<a href="<?php echo e(route('front.index')); ?>">
-							<img src="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?>" width="60px" height="60px" srcset="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?> 2x" class="secondary-logo" alt="logo">
-							<img src="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?>" width="60px" height="60px" srcset="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?> 2x" class="primary-logo" alt="logo">
-							<span class="logo-text"><?php echo e($setting->website_title); ?></span>
-						</a>
-					</h1>
-					<div class="logo-clone">
-						<h1>
-							<a href="<?php echo e(route('front.index')); ?>">
-								<img src=<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?>" width="60px" height="60px" srcset="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?> 2x" class="secondary-logo" alt="logo">
-								<img src=<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?>" width="60px" height="60px" srcset="<?php echo e(asset('/')); ?>assets/front/img/<?php echo e($setting->fav_icon); ?> 2x" class="primary-logo" alt="logo">
-								<span class="logo-text"><?php echo e($setting->website_title); ?></span>
-							</a>
-						</h1>
-					</div>
-				</div>
-				<a href="#" class="mobile-menu-switch">
-					<span class="line"></span>
-					<span class="line"></span>
-					<span class="line"></span>
-					<span class="line"></span>
-				</a>
+				
+
+				<!------------------------------------------------->
+				
 				<div class="menu-container clearfix second-menu">
 					<nav>
-						<ul class="sf-menu">
+					<ul class="sf-menu">
+							<li class="<?php if(request()->path() == '/'): ?> selected  <?php endif; ?>" href="<?php echo e(route('front.index')); ?>">
+								<a href="<?php echo e(route('front.index')); ?>">
+									<?php echo e(__('Home')); ?>
+
+								</a>
+							</li>
+							<li class="<?php if(request()->path() == 'about'): ?> selected  <?php endif; ?>"  href="<?php echo e(route('front.about')); ?>">
+								<a href="<?php echo e(route('front.about')); ?>">
+									<?php echo e(__('About')); ?>
+
+								</a>
+							</li>
+							<li class="<?php if(request()->path() == 'service'): ?> selected  <?php endif; ?>"  href="<?php echo e(route('front.service')); ?>">
+								<a href="<?php echo e(route('front.service')); ?>">
+									<?php echo e(__('Service')); ?>
+
+								</a>
+							</li>
+						
+						
 							<li class="<?php if(request()->path() == 'work'): ?> selected <?php elseif(request()->is('work-details/*')): ?> selected <?php endif; ?>">
 								<a href="<?php echo e(route('front.work')); ?>">
 									<?php if($currentLang->direction == 'rtl'): ?> المشاريع  <?php else: ?> Projects <?php endif; ?>
