@@ -26,7 +26,9 @@ class ServiceController extends Controller
         $services = Service::where('language_id', $lang)->orderBy('id', 'DESC')->get();
         
         $saectiontitle = Sectiontitle::where('language_id', $lang)->first();
+        
         return view('admin.service.index', compact('services', 'saectiontitle'));
+        // return $services;
     }
 
     // Add Service

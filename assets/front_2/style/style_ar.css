@@ -1,5 +1,7 @@
 /* --- general --- */
-
+*{
+	font-size: 115% ;
+}
 .clearfix:after
 {
     font-size: 0px;
@@ -45,6 +47,41 @@ p
 	color: #303030;
 	line-height: 24px;
 }
+/* Owl-carousel */
+.owl-carousel .owl-item img{
+	width:150px;
+	height:150px;
+	object-fit: contain;
+	margin:auto;
+	border-radius: 0% 35%;
+}
+
+.owl-theme .owl-nav button.owl-prev,
+.owl-theme .owl-nav button.owl-next {
+	position: absolute;
+    top: 30%;
+
+    font-size: 3.5em !important;
+    color: #fff !important;
+	background-color:#01a65d;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.owl-theme .owl-nav button.owl-prev{
+	left: 10px;
+}
+.owl-theme .owl-nav button.owl-next{
+	right: 10px;
+}
+.owl-theme .owl-nav button span{
+	height: 100%;
+    line-height: 40px
+}
+/* ================ */
 .footer-row p
 {
 	color: #B6BDBF;
@@ -569,6 +606,17 @@ h6.box-header::after
 	width: 30px;
 	height: 2px;
 	margin-top: 23px;
+
+}
+.servicesBoxHeader::after{
+	display: block;
+	content: "";
+	background: #56B665;
+	width: 60px;
+	height: 2px;
+	margin: auto;
+	margin-top: 23px;
+	
 }
 .box-header.white
 {
@@ -1564,9 +1612,7 @@ body.overlay .background-overlay
 	z-index: 1;
 }
 /* --- page --- */
-.theme-page
-{
-}
+
 .page-margin-top
 {
 	margin-top: 50px;
@@ -2631,11 +2677,20 @@ ol.features-list li p
 	font-weight: 300;
 }
 /* --- contact data --- */
+.contact-data{
+	padding: 0px 10px;
+}
 .contact-data li
 {
-	color: #B6BDBF;
+	color: white;
 	border-bottom: 1px solid #495052;
 	line-height: 24px;
+}
+.contact-data li a{
+	color: white;
+}
+.contact-data li a:hover{
+	color: blue;
 }
 .contact-data li:last-child
 {
@@ -5163,6 +5218,160 @@ body.lock-position
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+}
+/*          ===== cards-p4 =====          */
+.cards-p4{
+	padding: 40px 20px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	color: rgb(100, 100, 100);
+  }
+  .cards-p4 .contact-us{
+	width: 100%;
+  }
+  
+  .cards-p4 .contact-us h2{
+	margin-bottom: 20px;
+  }
+  .cards-p4 .contact-us p{
+	margin-bottom: 30px;
+  }
+  .cards-p4 .contact-minicards{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .cards-p4 .contact-minicards .location{
+	width: 30%;
+	padding: 20px 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+  }
+
+  .cards-p4 .contact-minicards .contact-forms{
+	width: 65%;
+	padding: 40px;
+	text-align: center;
+	
+	display: flex;
+	flex-wrap: wrap;
+  }
+  .cards-p4 .contact-minicards .contact-forms form{
+	width: 100%;
+	color: white;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .top{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .top div{
+	width: 49%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .top div>label{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 15px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .top div>input{
+	width: 95%;
+	line-height: 28px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .middle{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 30px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .middle label{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 5px;
+	margin-bottom: 15px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .middle input{
+	width: 97.5%;
+	line-height: 28px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .bottom{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 30px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .bottom label{
+	width: 100%;
+	text-align: right;
+	margin-bottom: 5px;
+	margin-bottom: 15px;
+  }
+  .cards-p4 .contact-minicards .contact-forms form .bottom textarea{
+	width: 97.5%;
+  }
+  .cards-p4 .contact-minicards .contact-forms form button{
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 0px solid black;
+	background-color: #01a65d;
+	color: white;
+	width:23%;
+  }
+  .cards-p4 .contact-minicards .contact-forms form button:hover{
+	 background-color: #0be080; 
+  }
+  /*=================== Media Query =====================*/
+
+@media(max-width:1200px){
+	.footer-row .row{
+		width: 90%;
+	}
+}
+@media(max-width:950px){
+	.cards-p4 .contact-minicards{
+		flex-wrap: wrap;
+	  
+	  }
+	  .cards-p4 .contact-minicards .location{
+		width: 100%;
+		margin-bottom: 40px;
+	  }
+	  .cards-p4 .contact-minicards .location .row{
+		width: 100%;
+	  }
+	  .cards-p4 .contact-minicards .contact-forms{
+		width: 100%;
+		margin-bottom: 10px;
+	  }
+}
+@media(max-width: 540px){
+	.cards-p4,
+	.cards-p4 .contact-minicards .contact-forms{
+		padding: 40px 0px;
+	}
+	.cards-p4 .contact-minicards .contact-forms form button{
+		width: 40%;
+	}
+	.form-section .row{
+		width: 100%;
+	}
+	
+	.cards-p4 .contact-minicards .contact-forms form .top div,
+	.cards-p4 .contact-minicards .contact-forms form .top div input,
+	.cards-p4 .contact-minicards .contact-forms form .middle input,
+	.cards-p4 .contact-minicards .contact-forms form .bottom textarea
+	{
+		width: 100%;
+	}
 }
 @media (max-width:400px){
 	.column-1-4{
