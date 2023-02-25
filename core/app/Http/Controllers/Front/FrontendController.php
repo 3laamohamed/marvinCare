@@ -54,7 +54,7 @@ class FrontendController extends Controller
         $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
         $data['plans'] = Package::where('status',1)->where('language_id', $currlang->id)->get();
         $data['offers'] = Offerprovide::where('status',1)->where('language_id', $currlang->id)->get();
-        $data['services'] = Service::where('status',1)->where('language_id', $currlang->id)->limit(6)->get();
+        $data['services'] = Service::where('status',1)->where('language_id', $currlang->id)->get();
         $data['blogs'] = Blog::where('status', 1)->where('language_id', $currlang->id)->orderBy('id', 'DESC')->limit(4)->get();
         $data['testimonials'] = Testimonial::where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
         $data['funfacts'] = Funfact::where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
