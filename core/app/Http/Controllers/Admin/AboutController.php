@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Client;
+use App\Contact;
 use Session;
 use App\About;
 use App\Language;
@@ -115,7 +116,11 @@ class AboutController extends Controller
         return redirect(route('admin.about').'?language='.$this->lang->code)->with('notification', $notification);
     }
     public function indexContact(){
-        $contacts = '';
+        $contacts = Contact::orderBy('id','desc')->get();
         return view('admin.contacts.index', compact('contacts'));
+    }
+    public function deleteContact($id){
+        Contact::find($id)->delete();
+        return redirect()->back();
     }
 }

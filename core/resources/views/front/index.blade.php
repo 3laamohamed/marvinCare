@@ -25,8 +25,8 @@
 		</div>
 		<div class="row margin-top-89">
 			<div class="row">
-				<h2 class="box-header">WHY CHOOSE US</h2>
-				<p class="description align-center">Marvin care operates in Ottawa and provides a variety of cleaning services.<br>Choose us because of our reputation for excellence.</p>
+				<h2 class="box-header">{{$sectionInfo->plan_title}}</h2>
+				<p class="description align-center">{{$sectionInfo->plan_subtitle}}</p>
 				<div class="row page-margin-top">
 					<div class="column column-1-4">
 						<ul class="features-list align-right margin-top-30">
@@ -64,19 +64,20 @@
 		</div>
 		<div class="row full-width gray padding-top-89 padding-bottom-96">
 			<div class="row">
-				<h2 class="box-header">OUR SERVICES</h2>
-				<p class="description align-center">Do you wish you had more free time? We can make it happen!</p>
+				<h2 class="box-header">
+					{{$sectionInfo->service_title}}</h2>
+				<p class="description align-center">{{$sectionInfo->service_subtitle}}</p>
 				<div class="carousel-container margin-top-65 clearfix">
 					<ul class="services-list horizontal-carousel clearfix page-margin-top">
 						@foreach($services as $service)
-						<li class="column column-1-3">
+						<li class="column column-1-3" style="max-height: 500px; height: 100%">
 							<a>
 								<div class="overflow-hidden">
-									<img width="370px" hight="260px" src="{{ asset('/') }}assets/front/img/{{$service->image}}" alt="">
+									<img src="{{ asset('/') }}assets/front/img/{{$service->image}}" alt="">
 								</div>
 							</a>
 							<h4 class="box-header">{{$service->name}}</h4>
-							<p>{!! $service->content !!}</p>
+							{!! $service->content !!}
 						</li>
 						<!------------------------->
 						@endforeach
@@ -89,8 +90,8 @@
 		</div>
 		<div class="row full-width padding-top-89 padding-bottom-100">
 			<div class="row">
-				<h2 class="box-header">SELECTED PROJECTS</h2>
-				<p class="description align-center">Explore completed projects.</p>
+				<h2 class="box-header">{{$sectionInfo->testimonial_title}}</h2>
+				<p class="description align-center">{{$sectionInfo->testimonial_subtitle}}</p>
 				<div class="carousel-container margin-top-65 clearfix">
 					<ul class="projects-list horizontal-carousel clearfix page-margin-top">
 						@foreach($projects as $project)
@@ -115,8 +116,8 @@
 		</div>
 		<div class="row full-width padding-top-89 padding-bottom-100">
 			<div class="row">
-				<h2 class="box-header">LATEST NEWS</h2>
-				<p class="description align-center">You can browse the latest articles that have been uploaded recently.</p>
+				<h2 class="box-header">{{$sectionInfo->blog_title}}</h2>
+				<p class="description align-center">{{$sectionInfo->blog_subtitle}}</p>
 				<div class="carousel-container margin-top-65 clearfix">
 					<ul class="projects-list horizontal-carousel clearfix page-margin-top">
 						@foreach($blogs as $blog)
@@ -141,8 +142,8 @@
 		</div>
 		<div class="row full-width padding-top-89 padding-bottom-100">
 			<div class="row">
-				<h2 class="box-header">Our Clients</h2>
-				<p class="description align-center">You can browse the latest articles that have been uploaded recently.</p>
+				<h2 class="box-header">{{$sectionInfo->offer_title}}</h2>
+				<p class="description align-center">{{$sectionInfo->offer_subtitle}}</p>
 				<div class="carousel-container margin-top-65 clearfix">
 					<div class="owl-carousel owl-theme">
 						<div class="item"><img src="{{ asset('/') }}assets/front/img/16771418661728060005.png" alt=""></div>

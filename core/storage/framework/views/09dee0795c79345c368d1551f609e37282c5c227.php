@@ -59,18 +59,33 @@
 					<ul class="services-list services-icons clearfix">
 						<li class="column column-1-3">
 							<span class="service-icon big features-credit-card tick"></span>
-							<h4>EASY PAYMENTS</h4>
-							<p>Easy payments via paypal or via credit card payment processing service.</p>
+							<?php if($currentLang->direction == 'rtl'): ?>
+								<h4>سهولة الدفع</h4>
+								<p>سهولة الدفع عن طريق باي بال أو عن طريق خدمة معالجة الدفع ببطاقة الائتمان</p>
+							<?php else: ?>
+								<h4>EASY PAYMENTS</h4>
+								<p>Easy payments via paypal or via credit card payment processing service.</p>
+							<?php endif; ?>
 						</li>
 						<li class="column column-1-3">
 							<span class="service-icon big features-pet tick"></span>
-							<h4>PET FRIENDLY</h4>
-							<p>We us pet friendly cleaners as your pet is a valued member of your family.</p>
+							<?php if($currentLang->direction == 'rtl'): ?>
+								<h4>صديق للحيوانات الاليفة</h4>
+								<p>نحن نستخدم منظفات صديقة للحيوانات الأليفة لأن حيوانك الأليف هو عضو مهم في عائلتك</p>
+							<?php else: ?>
+								<h4>PET FRIENDLY</h4>
+								<p>We us pet friendly cleaners as your pet is a valued member of your family.</p>
+							<?php endif; ?>
 						</li>
 						<li class="column column-1-3">
 							<span class="service-icon big features-delivery tick"></span>
-							<h4>ALWAYS ON TIME</h4>
-							<p>Your time is important to us. We provide always on time cleaning service.</p>
+							<?php if($currentLang->direction == 'rtl'): ?>
+								<h4>دائما في الوقت المحدد</h4>
+								<p>وقتك مهم بالنسبة لنا. نحن نقدم خدمة التنظيف دائمًا في الوقت المحدد</p>
+							<?php else: ?>
+								<h4>ALWAYS ON TIME</h4>
+								<p>Your time is important to us. We provide always on time cleaning service.</p>
+							<?php endif; ?>
 						</li>
 					</ul>
 				</div>

@@ -192,27 +192,23 @@
 				</ul>
 			</div>
 		</div>
-
-
 		<!------------------test---------------------->
-
 		<!-- Slider Revolution -->
 		@yield('content')
 		<div class="row dark-gray footer-row full-width padding-top-61 padding-bottom-36" id="contactId">
 			<div style="padding: 0px 15px;">
-				<h2 style="color:white" class="box-header">Contact US</h2>
-				<p class="description align-center">You can browse the
-					latest articles that have been uploaded recently.</p>
+				<h2 style="color:white" class="box-header">{{$sectionInfo->contact_title}}</h2>
+				<p class="description align-center">{{$setting->footer_text}}</p>
 			</div>
 			<div class="row row-4-4">
-
 				<div class="cards-p4">
 					<div class="contact-minicards">
 						<div class="contact-forms">
-							<form>
+							<form method="POST" action="{{route('front.storeContact')}}">
+								@csrf
 								<div class="middle">
 									<label style="text-align:left" id="cdl42" for="username">Name</label>
-									<input type="text" name="username" placeholder="Please Enter Your Name" />
+									<input type="text" name="name" placeholder="Please Enter Your Name" />
 								</div>
 								<div class="top">
 									<div>
@@ -234,146 +230,38 @@
 						</div>
 						<div class="location">
 							<div class="row">
-								<h5 class="margin-top-20">CONTACT INFO</h5>
 								<ul class="contact-data margin-top-20">
 									<li class="template-location">
-										<div class="value">745 Adelaide St., Ottawa, Ontario</div>
+										<div class="value">{{ $setting->address }}</div>
 									</li>
-									<li class="template-mobile">
-										<div class="value"><a href="tel:2507257052">250 725 7052</a></div>
-									</li>
+									@php
+										$phoneArray = explode(",",$setting->number)
+									@endphp
+									@for($i = 0; $i<sizeof($phoneArray) ; $i++)
+										<li class="template-mobile">
+											<div class="value"><a href="tel:{{$phoneArray[$i]}}">{{$phoneArray[$i]}}</a></div>
+										</li>
+									@endfor
 									<li class="template-email">
-										<div class="value"><a href="mailto:contact@cleanmate.com">contact@cleanmate.com</a></div>
-									</li>
-									<li class="template-clock">
-										<div class="value">Mon-Fri: 08.00 am - 05.00 pm</div>
-									</li>
-									<li class="template-clock">
-										<div class="value">Saturday, Sunday: closed</div>
+										<div class="value"><a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></div>
 									</li>
 								</ul>
 								<ul class="social-icons align-center margin-top-20">
-									<li>
-										<a target="_blank" href="https://twitter.com/QuanticaLabs" class="social-twitter" title="twitter"></a>
-									</li>
-									<li>
-										<a href="https://pinterest.com/quanticalabs/" class="social-pinterest" title="pinterest"></a>
-									</li>
-									<li>
-										<a target="_blank" href="https://facebook.com/QuanticaLabs" class="social-facebook" title="facebook"></a>
-									</li>
+									@foreach($social as $so)
+										<li>
+											<a target="_blank" href="{{$so->url}}" class="{{$so->icon}}" title="twitter"></a>
+										</li>
+									@endforeach
 								</ul>
 							</div>
-
-
 						</div>
-
 					</div>
 				</div>
 			</div>
-
-			
 			<div class="row align-center padding-top-30">
-				<span class="copyright">© Copyright 2017 <a href="https://themeforest.net/item/cleanmate-cleaning-company-maid-gardening-template/20493947?ref=QuanticaLabs" title="Cleanmate Template" target="_blank">Marvin Care </a> by <a href="http://quanticalabs.com" title="QuanticaLabs" target="_blank">QuanticaLabs</a></span>
+				<span class="copyright">{!! $setting->copyright_text !!}</span>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!---------------footer------------------>
-		<!-- <div class="row dark-gray footer-row full-width padding-top-61 padding-bottom-36">
-		<div class="row row-4-4">
-			<div class="column column-1-4">
-				<h6>ABOUT US</h6>
-				<p class="margin-top-23">Founded in 1995 Cleanmate quickly built a reputation as one of the leading providers of residential and commercial cleaning solutions.</p>
-				<p>Our focus is to listen to our clients, understand their needs and provide the exceptional level of cleaning service.</p>
-				<div class="margin-top-37 padding-bottom-16">
-					<a class="more gray" href="about.html" title="Learn more">Learn more</a>
-				</div>
-			</div>
-			<div class="column column-1-4">
-				<h6>OUR SERVICES</h6>
-				<ul class="list margin-top-31">
-					<li class="template-arrow-horizontal-2"><a href="service_commercial_cleaning.html" title="Commercial Cleaning">Commercial Cleaning</a></li>
-					<li class="template-arrow-horizontal-2"><a href="service_house_cleaning.html" title="House Cleaning">House Cleaning</a></li>
-					<li class="template-arrow-horizontal-2"><a href="service_move_in_out.html" title="Move In Out Service">Move In Out Service</a></li>
-					<li class="template-arrow-horizontal-2"><a href="service_post_renovation.html" title="Post Renovation">Post Renovation</a></li>
-					<li class="template-arrow-horizontal-2"><a href="service_window_cleaning.html" title="Window Cleaning">Window Cleaning</a></li>
-					<li class="template-arrow-horizontal-2"><a href="service_green_spaces_maintenance.html" title="Green Spaces Maintenance">Green Spaces Maintenance</a></li>
-					<li class="template-arrow-horizontal-2">Novum Elementum</li>
-					<li class="template-arrow-horizontal-2">Sicilium Polon</li>
-				</ul>
-			</div>
-			<div class="column column-1-4">
-				<h6>LATEST POSTS</h6>
-				<ul class="latest-post margin-top-42">
-					<li>
-						<a href="post.html" title="Best pro tips for home cleaning">Best pro tips for home cleaning</a>
-						<abbr title="August 25, 2017">August 25, 2017</abbr>
-					</li>
-					<li>
-						<a href="post.html" title="Best pro tips for home cleaning">Best pro tips for home cleaning</a>
-						<abbr title="August 24, 2017">August 24, 2017</abbr>
-					</li>
-					<li>
-						<a href="post.html" title="Best pro tips for home cleaning">Best pro tips for home cleaning</a>
-						<abbr title="August 23, 2017">August 23, 2017</abbr>
-					</li>
-				</ul>
-			</div>
-			<div class="column column-1-4">
-				<h6>CONTACT INFO</h6>
-				<ul class="contact-data margin-top-20">
-					<li class="template-location">
-						<div class="value">745 Adelaide St., Ottawa, Ontario</div>
-					</li>
-					<li class="template-mobile">
-						<div class="value"><a href="tel:2507257052">250 725 7052</a></div>
-					</li>
-					<li class="template-email">
-						<div class="value"><a href="mailto:contact@cleanmate.com">contact@cleanmate.com</a></div>
-					</li>
-					<li class="template-clock">
-						<div class="value">Mon-Fri: 08.00 am - 05.00 pm</div>
-					</li>
-					<li class="template-clock">
-						<div class="value">Saturday, Sunday: closed</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="row page-padding-top">
-			<ul class="social-icons align-center">
-				<li>
-					<a target="_blank" href="https://twitter.com/QuanticaLabs" class="social-twitter" title="twitter"></a>
-				</li>
-				<li>
-					<a href="https://pinterest.com/quanticalabs/" class="social-pinterest" title="pinterest"></a>
-				</li>
-				<li>
-					<a target="_blank" href="https://facebook.com/QuanticaLabs" class="social-facebook" title="facebook"></a>
-				</li>
-			</ul>
-		</div>
-		<div class="row align-center padding-top-30">
-			<span class="copyright">© Copyright 2017 <a href="https://themeforest.net/item/cleanmate-cleaning-company-maid-gardening-template/20493947?ref=QuanticaLabs" title="Cleanmate Template" target="_blank">Marvin Care </a> by <a href="http://quanticalabs.com" title="QuanticaLabs" target="_blank">QuanticaLabs</a></span>
-		</div>
-	</div> -->
-
-		<!--/-->
-
-
 	</div>
 	<a href="#top" class="scroll-top animated-element template-arrow-vertical-3" title="Scroll to top"></a>
 	<div class="background-overlay"></div>

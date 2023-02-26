@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Front;
+use App\Contact;
 use App\Faq;
 use App\Project;
 use App\Setting;
@@ -62,7 +63,7 @@ class FrontendController extends Controller
         $data['whyus'] = Whyus::where('status',1)->where('language_id', $currlang->id)->get();
         $data['work'] = WorkDetails::where('status',1)->where('language_id', $currlang->id)->get();
         $data['setting'] = Setting::where('language_id', $currlang->id)->first();
-
+        $data['social'] = Social::get();
         return view('front.index', $data);
     }
 
@@ -125,7 +126,7 @@ class FrontendController extends Controller
         $data['funfacts'] = Funfact::where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
         $data['setting'] = Setting::where('language_id', $currlang->id)->first();
         $data['sliders'] = Slider::where('status',1)->where('language_id', $currlang->id)->get();
-
+        $data['social'] = Social::get();
         return view('front.about', $data);
     }
 
@@ -139,7 +140,8 @@ class FrontendController extends Controller
         $data['sliders'] = Slider::where('status',1)->where('language_id', $currlang->id)->get();
         $data['services'] = Service::where('status',1)->where('language_id', $currlang->id)->get();
         $data['setting'] = Setting::where('language_id', $currlang->id)->first();
-
+        $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
+        $data['social'] = Social::get();
         return view('front.service', $data);
     }
 
@@ -155,6 +157,8 @@ class FrontendController extends Controller
         $data['category'] = WorkCategory::where('status',1)->where('language_id', $currlang->id)->get();
         $data['work'] = WorkDetails::where('status',1)->where('language_id', $currlang->id)->get();
         $data['setting'] = Setting::where('language_id', $currlang->id)->first();
+        $data['social'] = Social::get();
+        $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
 
         return view('front.work', $data);
     }
@@ -169,6 +173,8 @@ class FrontendController extends Controller
 
         $data['project'] = Project::where('status',1)->where('language_id', $currlang->id)->get();
         $data['setting'] = Setting::where('language_id', $currlang->id)->first();
+        $data['social'] = Social::get();
+        $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
 
         return view('front.project', $data);
     }
@@ -183,6 +189,8 @@ class FrontendController extends Controller
         $data['service'] = Service::where('slug', $slug)->where('language_id', $currlang->id)->firstOrFail();
         $data['all_services'] = Service::where('status', 1)->where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
         $data['setting'] = Setting::where('language_id', $currlang->id)->first();
+        $data['social'] = Social::get();
+        $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
 
         return view('front.service-details', $data);
     }
@@ -211,7 +219,7 @@ class FrontendController extends Controller
         $data['packagedetails'] = Package::where('id', $id)->where('language_id', $currlang->id)->first();
         $data['gateways'] = PaymentGatewey::where('status',1)->get();
         $data['already_purchased'] = Packageorder::where('user_id', Auth::user()->id)->first();
-
+        $data['social'] = Social::get();
         return view('front.packagecheckout', $data);
     }
 
@@ -226,7 +234,7 @@ class FrontendController extends Controller
         $data['entertainments'] = Entertainment::where('status',1)->where('language_id', $currlang->id)->get();
         $data['mediazones'] = Mediazone::where('status',1)->where('language_id', $currlang->id)->get();
         $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
-
+        $data['social'] = Social::get();
         return view('front.media', $data);
     }
 
@@ -239,7 +247,7 @@ class FrontendController extends Controller
         }
 
         $data['branches'] = Branch::where('language_id', $currlang->id)->where('status',1)->get();
-
+        $data['social'] = Social::get();
         return view('front.branch', $data);
     }
 
@@ -252,7 +260,7 @@ class FrontendController extends Controller
         }
 
         $data['teams'] = Team::where('language_id', $currlang->id)->where('status',1)->orderBy('id', 'DESC')->paginate(6);
-
+        $data['social'] = Social::get();
         return view('front.team', $data);
     }
 
@@ -345,6 +353,7 @@ class FrontendController extends Controller
         $data['packagedetails'] = Package::where('id', $user->activepackage)->first();
         $data['gateways'] = PaymentGatewey::where('status',1)->get();
         $data['billpayed'] = Billpaid::where('user_id', Auth::user()->id)->where('yearmonth', \Carbon\Carbon::now()->format('m-Y'))->first();
+        $data['sectionInfo'] = Sectiontitle::where('language_id', $currlang->id)->first();
 
         return view('front.billpay', $data);
         
@@ -375,9 +384,10 @@ class FrontendController extends Controller
         $year = $request->year;
         $bcategories = Bcategory::where('status', 1)->where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
         $sliders = Slider::where('status',1)->where('language_id', $currlang->id)->get();
-
+        $social = Social::get();
         $latestblogs = Blog::where('status', 1)->where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
         $setting = Setting::where('language_id', $currlang->id)->first();
+        $sectionInfo = Sectiontitle::where('language_id', $currlang->id)->first();
 
         $blogs = Blog::where('status', 1)->where('language_id', $currlang->id)
                         ->when($catid, function ($query, $catid) {
@@ -388,7 +398,7 @@ class FrontendController extends Controller
                         })
                         ->orderBy('id', 'DESC')->paginate(6);
 
-        return view('front.blogs', compact('blogs', 'bcategories', 'latestblogs','sliders','setting'));
+        return view('front.blogs', compact('blogs', 'bcategories','sectionInfo','latestblogs','sliders','setting','social'));
     }
 
     // Blog Details  Funtion
@@ -404,8 +414,9 @@ class FrontendController extends Controller
         $latestblogs = Blog::where('status', 1)->where('language_id', $currlang->id)->orderBy('id', 'DESC')->limit(4)->get();
         $bcategories = Bcategory::where('status', 1)->where('language_id', $currlang->id)->orderBy('id', 'DESC')->get();
         $setting = Setting::where('language_id', $currlang->id)->first();
+        $social = Social::get();
 
-        return view('front.blogdetails', compact('blog', 'bcategories', 'latestblogs','sliders','setting'));
+        return view('front.blogdetails', compact('blog', 'bcategories', 'latestblogs','sliders','setting','social'));
     }
 
     // Front Daynamic Page Function
@@ -433,5 +444,13 @@ class FrontendController extends Controller
         app()->setLocale($lang);
         return redirect()->route('front.index');
     }
-
+    public function storeContact(Request $request){
+        $save = Contact::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+            'message'=>$request->message,
+        ]);
+        return redirect()->back();
+    }
 }

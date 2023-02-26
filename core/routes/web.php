@@ -43,6 +43,8 @@ Route::group(['middleware' => 'setlang'], function () {
     Route::get('/billpay', 'Front\FrontendController@billpay')->name('front.billpay');
     Route::get('/speed-test', 'Front\FrontendController@speed')->name('front.speed.test');
 
+    Route::post('/storeContact', 'Front\FrontendController@storeContact')->name('front.storeContact');
+
     Route::get('/products', 'Front\ProductController@products')->name('front.products');
     Route::get('product/{slug}', 'Front\ProductController@product_details')->name('front.product.details');
     Route::get('/add-to-cart/{id}', 'Front\ProductController@addToCart')->name('add.cart');
@@ -215,8 +217,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () 
     Route::post('/about/delete/{id}/', 'Admin\AboutController@delete')->name('admin.about.delete');
     Route::get('/about/edit/{id}/', 'Admin\AboutController@edit')->name('admin.about.edit');
     Route::post('/about/update/{id}/', 'Admin\AboutController@update')->name('admin.about.update');
-    Route::post('/about/aboutcontent/{id}/', 'Admin\AboutController@aboutcontent')->name('admin.aboutcontent.update');
-
+    Route::post('/viewContent/', 'Admin\AboutController@aboutcontent')->name('admin.aboutcontent.update');
+    Route::get('deleteContact/{id}', 'Admin\AboutController@deleteContact')->name('admin.deleteContact');
     // Package Route
     Route::get('/package', 'Admin\PackagController@package')->name('admin.package');
     Route::get('/package/add', 'Admin\PackagController@add')->name('admin.package.add');
